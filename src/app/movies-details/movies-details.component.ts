@@ -10,21 +10,25 @@ import { Component, OnInit } from '@angular/core';
 export class MoviesDetailsComponent implements OnInit {
   id: any;
   result:any;
+  filepath: string = 'https://image.tmdb.org/t/p/w500'
   constructor(
     private route: ActivatedRoute,
     private moviesService: MoviesService
     ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.route.params.subscribe(
     (params:any) => {
    this.id = params['id'];
    });
    console.log('id',this.id)
-
-   this.moviesService.getMovie(this.id).then(
+  
+   await this.moviesService.getMovie(this.id).then(
      el => this.result = el
    )
    console.log(this.result)
+  }
+  click() {
+    
   }
 }

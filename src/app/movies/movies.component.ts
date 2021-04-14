@@ -14,7 +14,9 @@ export class MoviesComponent implements OnInit {
   movieName: FormGroup = new FormGroup({})
   movies: any;
   id:any;
+  routeActive:boolean = false;
   filepath: string = 'https://image.tmdb.org/t/p/w500'
+
   constructor(
     private moviesService: MoviesService,
     private formBuilder: FormBuilder,
@@ -39,15 +41,6 @@ export class MoviesComponent implements OnInit {
     }
   }
   onClick() {
-    /*this.route.params.subscribe(
-      (params:any) => {
-     this.id = params['id'];
-     });
-     this.id = 464052
-     console.log('id',this.id)
-    this.moviesService.getMovie(this.id)
-    setTimeout(() => 
-     window.location.reload
-    (), 200);*/
+   this.routeActive = true
   }
 }
