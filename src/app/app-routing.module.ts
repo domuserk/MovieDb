@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MoviesDetailsComponent } from './movies-details/movies-details.component';
 
 const routes: Routes = [
-  { path:'movies/:id', component: MoviesDetailsComponent},
+  { path:'movies/:id', component: MoviesDetailsComponent },
 ];
 
 @NgModule({
