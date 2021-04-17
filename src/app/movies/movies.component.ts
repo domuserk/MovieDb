@@ -39,6 +39,7 @@ export class MoviesComponent implements OnInit {
     }catch(err) {
       console.log(err)
     }
+      return null;
   }
   onClick() {
    this.routeActive = true
