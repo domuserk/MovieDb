@@ -11,6 +11,7 @@ export class MoviesDetailsComponent implements OnInit {
   id: any;
   result:any;
   filepath: string = 'https://image.tmdb.org/t/p/w500'
+  filepathOriginal: string = 'https://image.tmdb.org/t/p/original'
   constructor(
     private route: ActivatedRoute,
     private moviesService: MoviesService
@@ -21,8 +22,7 @@ export class MoviesDetailsComponent implements OnInit {
     (params:any) => {
    this.id = params['id'];
    });
-   console.log('id',this.id)
-  
+
    await this.moviesService.getMovie(this.id).then(
      el => this.result = el
    )

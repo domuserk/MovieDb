@@ -16,7 +16,7 @@ export class MoviesComponent implements OnInit {
   id:any;
   routeActive:boolean = false;
   filepath: string = 'https://image.tmdb.org/t/p/w500'
-
+  nameMovie: string;
   constructor(
     private moviesService: MoviesService,
     private formBuilder: FormBuilder,
@@ -29,12 +29,16 @@ export class MoviesComponent implements OnInit {
     this.movieName = this.formBuilder.group ({
       title: ['']
     })
+
+    this.getMovieName()
   }
 
-  async getMovieName() {
-
+  async getMovieName(movieName?) {
+    var title = this.movieName.get('title').value;
+    if(title == '') {
+      title = 'batman'
+    }
     try {
-      const title = this.movieName.get('title')?.value;
      return this.movies = await this.moviesService.getMovies(title)
     }catch(err) {
       console.log(err)
