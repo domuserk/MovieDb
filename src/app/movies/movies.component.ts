@@ -19,6 +19,7 @@ export class MoviesComponent implements OnInit {
   nameMovie: string;
   title:string;
   loadingSecondCard: boolean = false;
+  
   constructor(
     private moviesService: MoviesService,
     private formBuilder: FormBuilder,

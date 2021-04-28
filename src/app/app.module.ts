@@ -8,6 +8,10 @@ import { MoviesComponent } from './movies/movies.component';
 import { MoviesDetailsComponent } from './movies-details/movies-details.component';
 import { HeaderComponent } from './header/header.component';
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
+import { SearchComponent } from './search/search.component';
+import { NowPlauingComponent } from './now-plauing/now-plauing.component';
+import { TopRatedComponent } from './top-rated/top-rated.component';
+import { UpComingComponent } from './up-coming/up-coming.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import { PopularMoviesComponent } from './popular-movies/popular-movies.componen
     MoviesComponent,
     MoviesDetailsComponent,
     HeaderComponent,
-    PopularMoviesComponent
+    PopularMoviesComponent,
+    SearchComponent,
+    NowPlauingComponent,
+    TopRatedComponent,
+    UpComingComponent
   ],
   imports: [
     BrowserModule,

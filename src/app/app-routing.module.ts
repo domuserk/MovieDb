@@ -6,7 +6,8 @@ import { PopularMoviesComponent } from './popular-movies/popular-movies.componen
 
 const routes: Routes = [
   { path:'polular', component: PopularMoviesComponent },
-  { path:'movies/:id', component: MoviesDetailsComponent }
+  { path:'movies/:id', component: MoviesDetailsComponent },
+  { path:'', component: MoviesComponent }
 ];
 
 @NgModule({
