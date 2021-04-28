@@ -12,6 +12,7 @@ export class MoviesDetailsComponent implements OnInit {
   result:any;
   filepath: string = 'https://image.tmdb.org/t/p/w500'
   filepathOriginal: string = 'https://image.tmdb.org/t/p/original'
+  params:any;
   constructor(
     private route: ActivatedRoute,
     private moviesService: MoviesService
@@ -22,13 +23,22 @@ export class MoviesDetailsComponent implements OnInit {
     (params:any) => {
    this.id = params['id'];
    });
-
+   this.route.params.subscribe(
+    (params:any) => {
+   this.params = params['popular'];
+   });
+   if(this.params == 'popular' ) {
+     this.params = false;
+   }else {
+     this.params = true;
+   }
+   
    await this.moviesService.getMovie(this.id).then(
      el => this.result = el
    )
    console.log(this.result)
   }
   click() {
-    
+
   }
 }
