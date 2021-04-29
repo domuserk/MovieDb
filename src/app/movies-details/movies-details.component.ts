@@ -8,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movies-details.component.scss']
 })
 export class MoviesDetailsComponent implements OnInit {
+
   id: any;
   result:any;
   filepath: string = 'https://image.tmdb.org/t/p/w500'
   filepathOriginal: string = 'https://image.tmdb.org/t/p/original'
-  params:any;
+  params: any;
+  credits: any;
+  trending:any;
+
   constructor(
     private route: ActivatedRoute,
     private moviesService: MoviesService
@@ -33,11 +37,15 @@ export class MoviesDetailsComponent implements OnInit {
      this.params = true;
    }
    
-   await this.moviesService.getMovie(this.id).then(
-     el => this.result = el
-   )
-   console.log(this.result)
+    this.result = await this.moviesService.getMovie(this.id)
+   
+    this.credits = await this.moviesService.getCredits(this.id)
+
+    this.trending = await this.moviesService.getTrending()
+    console.log('trending',this.trending)
+    console.log('credits',this.credits)
   }
+  
   click() {
 
   }

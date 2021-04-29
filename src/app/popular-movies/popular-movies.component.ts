@@ -17,7 +17,7 @@ export class PopularMoviesComponent implements OnInit {
   nameMovie: string;
   title:string;
   loadingSecondCard: boolean = false;
-  
+  trending:any;
   constructor(
     private moviesService: MoviesService,
     private formBuilder: FormBuilder,
@@ -35,6 +35,7 @@ export class PopularMoviesComponent implements OnInit {
   }
 
   async getMovieName(movieName?) {
+    
     this.title = this.movieName.get('title').value;
     if(this.title == '') {
       this.loadingSecondCard = false;
@@ -48,6 +49,13 @@ export class PopularMoviesComponent implements OnInit {
       console.log(err)
     }
       return null;
+      
+    /*try {
+      return this.trending = await this.moviesService.getTrending()
+    } catch (err) {
+      console.log(err)
+    }
+    return null;*/
   }
   onClick() {
    this.routeActive = true

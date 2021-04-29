@@ -6,14 +6,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MoviesService {
-  movies:any;
-  movie:any;
-  result:any;
+  movies: any;
+  movie: any;
+  result: any;
+  key: string = '6545757974aafd8d7cfda393f68879fd';
+  credits: any;
+  trending: any;
   constructor(private http: HttpClient) { }
 
   getMovies(movieName?:any) {
-    const key = '6545757974aafd8d7cfda393f68879fd';
-    return this.movies = this.http.get(`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${movieName}&page=1&include_adult=true`)
+    return this.movies = this.http.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.key}&query=${movieName}&page=1&include_adult=true`)
     .toPromise()
   }
    async getMovie( id?: number) {
@@ -30,4 +32,10 @@ export class MoviesService {
      }
      return null;
   } 
+ async getCredits(id?) {
+   return this.credits = await this.http.get(` https://api.themoviedb.org/3/movie/${id}/credits?api_key=${this.key}&language=en-US`).toPromise()
+  }
+  async getTrending() {
+    return this.trending = await this.http.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${this.key}`).toPromise()
+  }
 }
