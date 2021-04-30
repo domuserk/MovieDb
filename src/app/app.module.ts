@@ -9,7 +9,7 @@ import { MoviesDetailsComponent } from './movies-details/movies-details.componen
 import { HeaderComponent } from './header/header.component';
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
 import { SearchComponent } from './search/search.component';
-import { NowPlauingComponent } from './now-plauing/now-plauing.component';
+import { NowPlayingComponent } from './now-plauing/now-playing.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
 import { UpComingComponent } from './up-coming/up-coming.component';
 
@@ -21,7 +21,7 @@ import { UpComingComponent } from './up-coming/up-coming.component';
     HeaderComponent,
     PopularMoviesComponent,
     SearchComponent,
-    NowPlauingComponent,
+    NowPlayingComponent,
     TopRatedComponent,
     UpComingComponent
   ],

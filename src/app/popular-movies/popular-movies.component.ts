@@ -18,6 +18,7 @@ export class PopularMoviesComponent implements OnInit {
   title:string;
   loadingSecondCard: boolean = false;
   trending:any;
+  popular:any;
   constructor(
     private moviesService: MoviesService,
     private formBuilder: FormBuilder,
@@ -51,7 +52,7 @@ export class PopularMoviesComponent implements OnInit {
       return null;*/
       
     try {
-      return this.trending = await this.moviesService.getTrending()
+      return this.popular = await this.moviesService.getPopular()
     } catch (err) {
       console.log(err)
     }

@@ -11,10 +11,14 @@ export class MoviesService {
   result: any;
   key: string = '6545757974aafd8d7cfda393f68879fd';
   credits: any;
-  trending: any;
+  popular: any;
+  nowPlaying:any;
+  topRated:any;
+  upComing:any;
   allMovies: any;
   allMoviesResults:any;
   resultAll:any;
+
   constructor(private http: HttpClient) { }
 
   getMovies(movieName?:any) {
@@ -41,20 +45,28 @@ export class MoviesService {
        let results = this.result.results[i]
         if (results.id == id) {
           return results;
-        } else {
-          for(let i = 0; i < this.resultAll.results.length; i++) {
-            let resultAll = this.resultAll.results[i]
-            console.log(resultAll)
-            return this.resultAll;
-          }
-      }
+        } 
     }
-     return null;
+     return;
   } 
+
  async getCredits(id?) {
-   return this.credits = await this.http.get(` https://api.themoviedb.org/3/movie/${id}/credits?api_key=${this.key}&language=en-US`).toPromise()
+   return this.credits = await this.http.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${this.key}&language=en-US`).toPromise()
   }
-  async getTrending() {
-    return this.trending = await this.http.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${this.key}`).toPromise()
+
+  async getPopular() {
+    return this.popular = await this.http.get(`https://api.themoviedb.org/3/movie/popular?api_key=${this.key}`).toPromise()
+  }
+
+  async getNowPlaying() {
+    return this.nowPlaying = await this.http.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${this.key}`).toPromise()
+  }
+
+  async getTopRated() {
+    return this.topRated = await this.http.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${this.key}`).toPromise()
+  }
+
+  async getupComing() {
+    return this.upComing = await this.http.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${this.key}`).toPromise()
   }
 }

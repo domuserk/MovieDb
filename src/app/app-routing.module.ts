@@ -1,3 +1,4 @@
+import { NowPlayingComponent } from './now-plauing/now-playing.component';
 import { MoviesComponent } from './movies/movies.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -7,7 +8,8 @@ import { PopularMoviesComponent } from './popular-movies/popular-movies.componen
 const routes: Routes = [
   { path:'polular', component: PopularMoviesComponent },
   { path:'movies/:id', component: MoviesDetailsComponent },
-  { path:'', component: MoviesComponent }
+  { path:'', component: MoviesComponent },
+  { path: 'now_playing', component: NowPlayingComponent }
 ];
 
 @NgModule({

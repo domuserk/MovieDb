@@ -39,14 +39,12 @@ export class MoviesDetailsComponent implements OnInit {
    }
 
     this.allMovies = await this.moviesService.getAllMovies(this.id)
-    console.log('allMovies',this.allMovies)
+    console.log('allMovies',this.allMovies.genres)
+
     this.result = await this.moviesService.getMovie(this.id)
    
     this.credits = await this.moviesService.getCredits(this.id)
 
-    this.trending = await this.moviesService.getTrending()
-    console.log('trending',this.trending)
-    console.log('credits',this.credits)
   }
   
   click() {
