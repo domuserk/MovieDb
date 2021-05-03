@@ -29,10 +29,6 @@
                 <img src="{{filepath}}{{item.poster_path}}"/>
                 </a>
            </div>
-          <div class="card_content">
-            <h2 class="card_title"></h2>
-            <p class="card_text"></p>
-          </div>
         </div>
       </li>
        <li class="cards_item" *ngFor="let item of movies?.results">
@@ -49,10 +45,6 @@
             <a (click)="onClick()" [routerLink]="['/movies',item.id]" >
               <img src="{{filepath}}{{item.poster_path}}"/>
             </a>
-          </div>
-          <div class="card_content">
-            <h2 class="card_title"></h2>
-            <p class="card_text"></p>
           </div>
         </div>
       </li>
