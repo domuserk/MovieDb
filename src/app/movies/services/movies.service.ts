@@ -33,16 +33,13 @@ export class MoviesService {
   
   }
    async getMovie( id?: number) {
-      this.movie = await this.movies.then(
-        el => this.result = el
-      )
-      console.log('result',this.result)
-     this.allMoviesResults = await this.allMovies.then(
-       el => this.resultAll = el
-     )
+      this.movie = await this.movies
 
-      for(let i = 0; i < this.result.results.length; i++) {
-       let results = this.result.results[i]
+      const result = this.movie;
+
+      console.log('result',result)
+      for(let i = 0; i < result.results.length; i++) {
+       let results = result.results[i]
         if (results.id == id) {
           return results;
         } 
@@ -50,7 +47,7 @@ export class MoviesService {
      return;
   } 
 
- async getCredits(id?) {
+  async getCredits(id?) {
    return this.credits = await this.http.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${this.key}&language=en-US`).toPromise()
   }
 

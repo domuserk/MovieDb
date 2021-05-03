@@ -37,14 +37,10 @@ export class MoviesDetailsComponent implements OnInit {
    }else {
      this.params = true;
    }
-
-    this.allMovies = await this.moviesService.getAllMovies(this.id)
-    console.log('allMovies',this.allMovies.genres)
-
-    this.result = await this.moviesService.getMovie(this.id)
-   
     this.credits = await this.moviesService.getCredits(this.id)
 
+    this.allMovies = await this.moviesService.getAllMovies(this.id)
+ 
   }
   
   click() {

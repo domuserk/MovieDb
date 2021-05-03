@@ -52,13 +52,13 @@
               <li *ngFor="let cast of credits?.cast"  class="cards_item" >
                 <div class="card">
                   <div>
-                    <div class="card_image">
+                    <div *ngIf="cast.profile_path == null" class="card_image">
                       <a>
                         <img src="../../assets/noImageBig.jpg" />
                       </a>
                     </div>
                   </div>
-                  <div class="card_image">
+                  <div *ngIf="cast.profile_path != null" class="card_image">
                     <a>
                       <img src="{{filepath}}{{cast.profile_path}}" />
                     </a>
