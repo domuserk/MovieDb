@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MoviesService } from '.././movies/services/movies.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  movieName: FormGroup = new FormGroup({})
+  movies: any;
+  id: any;
+  routeActive: boolean = false;
+  filepath: string = 'https://image.tmdb.org/t/p/w500'
+  nameMovie: string;
+  title: string;
+  loadingSecondCard: boolean = false;
+  
+  constructor(
+    private moviesService: MoviesService,
+    private formBuilder: FormBuilder,
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    
   }
 
+  async getMovieName(movieName?) {
+   
+  }
 }

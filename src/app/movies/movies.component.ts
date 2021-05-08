@@ -1,5 +1,5 @@
 import { MoviesService } from './services/movies.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
-  
+  @Input() messageShow;
   movieName: FormGroup = new FormGroup({})
   movies: any;
   id:any;
@@ -19,7 +19,7 @@ export class MoviesComponent implements OnInit {
   nameMovie: string;
   title:string;
   loadingSecondCard: boolean = false;
-  
+  messageToShow: String;
   constructor(
     private moviesService: MoviesService,
     private formBuilder: FormBuilder,
@@ -27,25 +27,30 @@ export class MoviesComponent implements OnInit {
     public router: Router
     ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
 
     this.movieName = this.formBuilder.group ({
       title: ['']
     })
+    await this.moviesService.movieName.subscribe(msg => {
+      this.messageToShow = msg;
+      this.ngOnInit();
+    })
 
-    this.getMovieName()
+    console.log('messagetoShow', this.messageToShow)
+    this.getMovieName(this.messageToShow)
+
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    
   }
 
   async getMovieName(movieName?) {
-    this.title = this.movieName.get('title').value;
-    if(this.title == '') {
-      this.loadingSecondCard = false;
-      this.title = 'batman'
-    }else {
-      this.loadingSecondCard = true;
-    }
+   
+    console.log('dentro',movieName)
     try {
-     return this.movies = await this.moviesService.getMovies(this.title)
+      return this.movies = await this.moviesService.getMovies(movieName)
     }catch(err) {
       console.log(err)
     }

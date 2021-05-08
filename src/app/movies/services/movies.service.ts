@@ -1,11 +1,14 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-
+import { Injectable,EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesService {
+
+  movieName =  new Subject<any>();
+  ryan: string = 'Ryan';
   movies: any;
   movie: any;
   result: any;
@@ -19,9 +22,12 @@ export class MoviesService {
   allMoviesResults:any;
   resultAll:any;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+    ) { }
 
   getMovies(movieName?:any) {
+    console.log('movieNameService',movieName)
     return this.movies = this.http.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.key}&query=${movieName}&page=1&include_adult=true`)
     .toPromise()
   }
@@ -66,4 +72,5 @@ export class MoviesService {
   async getupComing() {
     return this.upComing = await this.http.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${this.key}`).toPromise()
   }
+
 }

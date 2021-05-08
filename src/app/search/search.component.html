@@ -1,1 +1,7 @@
-<p>search works!</p>
+
+<form [formGroup]="movieName" (ngSubmit)="getMovieName()">
+    <li class="search-movie">
+        <input (change)="sendMessage()" type="text" formControlName="title">
+        <i></i>
+    </li>
+</form>
