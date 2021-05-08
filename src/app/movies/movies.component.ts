@@ -59,4 +59,5 @@ export class MoviesComponent implements OnInit {
   onClick() {
    this.routeActive = true
   }
+
 }

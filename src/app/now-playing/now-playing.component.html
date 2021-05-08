@@ -1,10 +1,16 @@
-<div>
-        <a [routerLink]="['/polular']">
-            <button class="waves-effect waves-light btn-small" type="submit">Popular</button>
-        </a>
-        <button class="waves-effect waves-light btn-small">Now Playing</button>
-        <button class="waves-effect waves-light btn-small">Top Rated</button>
-        <button class="waves-effect waves-light btn-small">UpComing</button>
+<div class="buttons-movie-filter">
+    <a [routerLink]="['/polular']">
+        <button class="waves-effect waves-light btn-small" type="submit">Popular</button>
+    </a>
+    <a [routerLink]="['/now_playing']">
+        <button class="waves-effect waves-light btn-small" type="submit">Now Playing</button>
+    </a>
+    <a [routerLink]="['/top_rated']">
+        <button class="waves-effect waves-light btn-small" type="submit">Top Rated</button>
+    </a>
+    <a [routerLink]="['/up_coming']">
+        <button class="waves-effect waves-light btn-small" type="submit">Up Coming</button>
+    </a>
 </div>
 <div class="main">
     <ul class="cards" *ngIf="moviesToShow == false">

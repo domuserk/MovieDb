@@ -38,7 +38,6 @@ export class NowPlayingComponent implements OnInit {
        this.messageToShow = msg;
        this.ngOnInit();
      })
-     this.getMovieName()
     this.getNowPlaying(this.messageToShow)
   }
 
@@ -59,22 +58,4 @@ export class NowPlayingComponent implements OnInit {
   onClick() {
     this.routeActive = true
   }
-
-  async getMovieName(movieName?) {
-
-    /*this.title = this.movieName.get('title').value;
-    if(this.title == '') {
-      this.loadingSecondCard = false;
-      this.title = 'justice league'
-    }else {
-      this.loadingSecondCard = true;
-    }
-    try {
-     return this.movies = await this.moviesService.getMovies(this.title)
-    }catch(err) {
-      console.log(err)
-    }
-      return null;*/
-  }
-
 }

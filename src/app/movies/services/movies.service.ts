@@ -8,7 +8,6 @@ import { Subject } from 'rxjs'
 export class MoviesService {
 
   movieName =  new Subject<any>();
-  ryan: string = 'Ryan';
   movies: any;
   movie: any;
   result: any;
@@ -21,7 +20,7 @@ export class MoviesService {
   allMovies: any;
   allMoviesResults:any;
   resultAll:any;
-
+  imageMovies: any;
   constructor(
     private http: HttpClient
     ) { }
@@ -71,5 +70,8 @@ export class MoviesService {
   async getupComing() {
     return this.upComing = await this.http.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${this.key}`).toPromise()
   }
-
+  
+  async imagesMovies(id?) {
+    return this.imageMovies = await this.http.get(`https://api.themoviedb.org/3/movie/${id}/images?api_key=${this.key}&language=null`).toPromise()
+  }
 }

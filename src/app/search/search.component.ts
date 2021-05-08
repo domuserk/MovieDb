@@ -20,6 +20,7 @@ export class SearchComponent implements OnInit {
   title: string;
   loadingSecondCard: boolean = false;
   searchMovie: any;
+
   constructor(
     private moviesService: MoviesService,
     private formBuilder: FormBuilder,
@@ -31,14 +32,8 @@ export class SearchComponent implements OnInit {
      })
   }
   
-  async getMovieName(movieName?) {
-   
-   
-  }
-
   async sendMessage() {
     try {
-      
       this.title = this.movieName.get('title').value;
       this.searchMovie = await this.moviesService.movieName.next(this.title)
       

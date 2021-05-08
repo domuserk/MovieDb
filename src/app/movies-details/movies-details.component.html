@@ -32,21 +32,19 @@
 
           <span class="likes">109 likes</span>
 
-        </div> 
+        </div>
 
-      </div> 
+      </div>
 
       <div class="description">
-
         <div class="column1">
           <span *ngFor="let movies of allMovies?.genres" class="tag">{{movies.name}}</span>
-        </div> 
+        </div>
 
         <div class="column2">
 
           <p>{{allMovies?.overview}}... <a href="#">read more</a></p>
           <h1>Actors</h1>
-
           <div class="main">
             <ul class="cards">
               <li *ngFor="let cast of credits?.cast"  class="cards_item" >
@@ -73,3 +71,9 @@
   </div>
 
 
+<!-- <div> 
+  <h1>Galerry</h1>
+  <h2 *ngFor="let image of imagesMovie?.backdrops">
+    <img src="{{filepath}}{{image.file_path}}" alt="">
+  </h2>
+</div>-->

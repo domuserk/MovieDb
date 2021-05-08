@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NowPlayingComponent } from './now-playing.component';
 
-describe('NowPlauingComponent', () => {
+describe('NowPlayingComponent', () => {
   let component: NowPlayingComponent;
   let fixture: ComponentFixture<NowPlayingComponent>;
 

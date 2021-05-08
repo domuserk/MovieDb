@@ -17,7 +17,7 @@ export class MoviesDetailsComponent implements OnInit {
   credits: any;
   trending:any;
   allMovies:any;
-  
+  imagesMovie:any;
   constructor(
     private route: ActivatedRoute,
     private moviesService: MoviesService
@@ -37,12 +37,23 @@ export class MoviesDetailsComponent implements OnInit {
    }else {
      this.params = true;
    }
-    this.credits = await this.moviesService.getCredits(this.id)
+    this.getCredits(this.id)
+    this.getAllMovies(this.id)   
+    this.getimagesMovie(this.id)
+  }
 
-    this.allMovies = await this.moviesService.getAllMovies(this.id)
- 
+  async getimagesMovie(id) {
+    this.imagesMovie = await this.moviesService.imagesMovies(id)
   }
   
+  async getAllMovies(id) {
+    this.allMovies = await this.moviesService.getAllMovies(this.id)
+  }
+
+  async getCredits(id) {
+    this.credits = await this.moviesService.getCredits(this.id)
+  }
+
   click() {
 
   }
