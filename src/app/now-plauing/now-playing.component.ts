@@ -12,6 +12,7 @@ import { MoviesService } from '../movies/services/movies.service';
 export class NowPlayingComponent implements OnInit {
   movieName: FormGroup = new FormGroup({})
   movies: any;
+  moviesPopular: any;
   id: any;
   routeActive: boolean = false;
   filepath: string = 'https://image.tmdb.org/t/p/w500'
@@ -19,7 +20,9 @@ export class NowPlayingComponent implements OnInit {
   title: string;
   loadingSecondCard: boolean = false;
   trending: any;
-  
+  messageToShow: any;
+  moviesToShow: boolean = false;
+
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
@@ -27,18 +30,30 @@ export class NowPlayingComponent implements OnInit {
     private moviesService: MoviesService
     ) { }
 
-   ngOnInit() {
+   async ngOnInit() {
      this.movieName = this.formBuilder.group({
        title: ['']
      })
-
+     await this.moviesService.movieName.subscribe(msg => {
+       this.messageToShow = msg;
+       this.ngOnInit();
+     })
      this.getMovieName()
-    this.getNowPlaying()
+    this.getNowPlaying(this.messageToShow)
   }
 
 
-  async getNowPlaying() {
-    this.movies = await this.moviesService.getNowPlaying()
+  async getNowPlaying(movieName?) {
+    if(this.messageToShow != undefined) {
+      this.moviesToShow = true;
+      this.movies = await this.moviesService.getMovies(movieName)
+    }
+    try {
+      this.moviesPopular = await this.moviesService.getNowPlaying()
+    }catch(e) {
+      console.log(e)
+    }
+    return null;
   }
 
   onClick() {

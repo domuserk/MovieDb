@@ -1,16 +1,16 @@
 
 <div>
-      <a [routerLink]="['/polular']">
-        <button class="waves-effect waves-light btn-small" type="submit">Popular</button>
-      </a>
-      <a [routerLink]="['/now_playing']">
-        <button class="waves-effect waves-light btn-small" type="submit">Now Playing</button>
-      </a>
-      <button class="waves-effect waves-light btn-small" >Top Rated</button>
-      <button class="waves-effect waves-light btn-small" >UpComing</button>
+    <a [routerLink]="['/polular']">
+      <button class="waves-effect waves-light btn-small" type="submit">Popular</button>
+    </a>
+    <a [routerLink]="['/now_playing']">
+      <button class="waves-effect waves-light btn-small" type="submit">Now Playing</button>
+    </a>
+    <button class="waves-effect waves-light btn-small" >Top Rated</button>
+    <button class="waves-effect waves-light btn-small" >UpComing</button>
 </div>   
     <div class="main">
-        <ul class="cards">
+        <ul class="cards" *ngIf="moviesToShow == false">
           <li class="cards_item" *ngFor="let item of popular?.results">
             <div  class="card">
               <div>
@@ -46,7 +46,43 @@
           </li>
         </ul>
       </div>
-    
+    <div *ngIf="moviesToShow == true">
+      <ul class="cards">
+        <li class="cards_item" *ngFor="let item of movies?.results">
+          <div class="card">
+            <div>
+              <div *ngIf="item.backdrop_path == null" class="card_image">
+                <a (click)="onClick()" [routerLink]="['/movies',item.id]">
+                  <img src="../../assets/noImageBig.jpg" />
+                </a>
+              </div>
+            </div>
+            <div *ngIf="item.backdrop_path != null" class="card_image">
+              <a (click)="onClick()" [routerLink]="['/movies',item.id]">
+                <img src="{{filepath}}{{item.poster_path}}" />
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="cards_item" *ngFor="let item of movies?.results">
+          <div *ngIf="loadingSecondCard == true" class="card">
+            2
+            <div>
+              <div *ngIf="item.backdrop_path == null" class="card_image">
+                <a (click)="onClick()" [routerLink]="['/movies',item.id]">
+                  <img src="../../assets/noImageBig.jpg" />
+                </a>
+              </div>
+            </div>
+            <div *ngIf="item.backdrop_path != null" class="card_image">
+              <a (click)="onClick()" [routerLink]="['/movies',item.id]">
+                <img src="{{filepath}}{{item.poster_path}}" />
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+ </div>
     
     
     

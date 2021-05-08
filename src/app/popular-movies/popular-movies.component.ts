@@ -19,6 +19,8 @@ export class PopularMoviesComponent implements OnInit {
   loadingSecondCard: boolean = false;
   trending:any;
   popular:any;
+  messageToShow: any;
+  moviesToShow: boolean = false;
   constructor(
     private moviesService: MoviesService,
     private formBuilder: FormBuilder,
@@ -26,13 +28,17 @@ export class PopularMoviesComponent implements OnInit {
     public router: Router
     ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
 
     this.movieName = this.formBuilder.group ({
       title: ['']
     })
-
-    this.getMovieName()
+    
+    await this.moviesService.movieName.subscribe(msg => {
+      this.messageToShow = msg;
+      this.ngOnInit();
+    })
+    this.getMovieName(this.messageToShow)
   }
 
   async getMovieName(movieName?) {
@@ -50,9 +56,14 @@ export class PopularMoviesComponent implements OnInit {
       console.log(err)
     }
       return null;*/
-      
+    if(movieName != undefined) {
+      this.moviesToShow = true;
+      this.movies = await this.moviesService.getMovies(movieName)
+    }
+
     try {
-      return this.popular = await this.moviesService.getPopular()
+       this.popular = await this.moviesService.getPopular()
+       
     } catch (err) {
       console.log(err)
     }
