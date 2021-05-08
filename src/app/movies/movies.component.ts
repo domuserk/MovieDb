@@ -32,7 +32,7 @@ export class MoviesComponent implements OnInit {
     this.movieName = this.formBuilder.group ({
       title: ['']
     })
-    
+
     if (this.messageToShow === undefined) {
       this.messageToShow = 'batman';
     } 
@@ -41,10 +41,7 @@ export class MoviesComponent implements OnInit {
       this.messageToShow = msg;
       this.ngOnInit();
     })
-
-    console.log('messagetoShow', this.messageToShow)
     this.getMovieName(this.messageToShow)
-
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -52,8 +49,6 @@ export class MoviesComponent implements OnInit {
   }
 
   async getMovieName(movieName?) {
-   
-    console.log('dentro',movieName)
     try {
       return this.movies = await this.moviesService.getMovies(movieName)
     }catch(err) {

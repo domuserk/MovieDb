@@ -44,7 +44,7 @@ export class NowPlayingComponent implements OnInit {
 
 
   async getNowPlaying(movieName?) {
-    if(this.messageToShow != undefined) {
+    if (this.messageToShow != undefined && this.messageToShow != '' ) {
       this.moviesToShow = true;
       this.movies = await this.moviesService.getMovies(movieName)
     }

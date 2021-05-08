@@ -27,7 +27,6 @@ export class MoviesService {
     ) { }
 
   getMovies(movieName?:any) {
-    console.log('movieNameService',movieName)
     return this.movies = this.http.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.key}&query=${movieName}&page=1&include_adult=true`)
     .toPromise()
   }

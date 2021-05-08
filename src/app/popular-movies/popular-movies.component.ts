@@ -56,7 +56,7 @@ export class PopularMoviesComponent implements OnInit {
       console.log(err)
     }
       return null;*/
-    if(movieName != undefined) {
+    if (movieName != undefined && movieName != '' ) {
       this.moviesToShow = true;
       this.movies = await this.moviesService.getMovies(movieName)
     }
