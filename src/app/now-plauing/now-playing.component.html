@@ -1,14 +1,10 @@
 <div>
-    <form [formGroup]="movieName" (ngSubmit)="getMovieName()">
-        <input type="text" formControlName="title" />
-        <button class="waves-effect waves-light btn-small" type="submit">Buscar</button>
         <a [routerLink]="['/polular']">
             <button class="waves-effect waves-light btn-small" type="submit">Popular</button>
         </a>
         <button class="waves-effect waves-light btn-small">Now Playing</button>
         <button class="waves-effect waves-light btn-small">Top Rated</button>
         <button class="waves-effect waves-light btn-small">UpComing</button>
-    </form>
 </div>
 <div class="main">
     <ul class="cards">

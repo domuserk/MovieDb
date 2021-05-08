@@ -32,6 +32,11 @@ export class MoviesComponent implements OnInit {
     this.movieName = this.formBuilder.group ({
       title: ['']
     })
+    
+    if (this.messageToShow === undefined) {
+      this.messageToShow = 'batman';
+    } 
+
     await this.moviesService.movieName.subscribe(msg => {
       this.messageToShow = msg;
       this.ngOnInit();
