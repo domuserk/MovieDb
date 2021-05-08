@@ -28,10 +28,10 @@ export class UpComingComponent implements OnInit {
       this.messageToShow = msg;
       this.ngOnInit();
     })
-    this.getTopRated(this.messageToShow)
+    this.getUpComing(this.messageToShow)
   }
 
-  async getTopRated(movieName?) {
+  async getUpComing(movieName?) {
     if (movieName != undefined && movieName != '') {
       this.moviesToShow = true;
       this.movies = await this.moviesService.getMovies(movieName)
