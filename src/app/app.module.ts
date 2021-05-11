@@ -12,6 +12,8 @@ import { SearchComponent } from './search/search.component';
 import { NowPlayingComponent } from './now-playing/now-playing.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
 import { UpComingComponent } from './up-coming/up-coming.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { UpComingComponent } from './up-coming/up-coming.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

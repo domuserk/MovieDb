@@ -25,10 +25,20 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+   this.scrollDownEffect();
   }
 
   async getMovieName(movieName?) {
    
+  }
+  scrollDownEffect() {
+    window.onscroll = () => {
+      const header = document.getElementById('nav');
+      if (window.scrollY > 80) {
+        header.classList.add('white');
+      } else {
+        header.classList.remove('white');
+      }
+    }
   }
 }
