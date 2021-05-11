@@ -56,16 +56,17 @@ export class MoviesComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    
+    changes.messageToShow.currentValue
+    console.log("Changes detected");
   }
 
   async getMovieName(movieName?) {
-
     try {
       return this.movies = await this.moviesService.getMovies(movieName)
+      
     }catch(err) {
       this.openSnackBar()
-      console.log(err)
+      throw new Error(err)
     }
       return null;
   }
@@ -101,9 +102,5 @@ export class MoviesComponent implements OnInit {
       this.messageToShowEquals = msg;
     })
     if (this.messageToShowEquals === this.messageToShow) return null;
-  }
-  
-  ngOnDestroy() {
-    this.moviesService.movieName.unsubscribe();
   }
 }

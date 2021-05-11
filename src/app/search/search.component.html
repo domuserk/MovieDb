@@ -1,7 +1,7 @@
 
 <form [formGroup]="movieName">
     <li class="search-movie">
-        <input (change)="sendMessage()" type="text" formControlName="title">
+        <input (input)="sendMessage()"  type="text" formControlName="title">
         <i></i>
     </li>
 </form>
