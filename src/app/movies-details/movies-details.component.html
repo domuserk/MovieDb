@@ -45,28 +45,28 @@
 
           <p>{{allMovies?.overview}}... <a href="#">read more</a></p>
           <h1>Actors</h1>
-          <div class="main">
-            <ul class="cards">
-              <li *ngFor="let cast of credits?.cast"  class="cards_item" >
-                <div class="card">
-                  <div>
-                    <div *ngIf="cast.profile_path == null" class="card_image">
-                      <a>
-                        <img src="../../assets/noImageBig.jpg" />
-                      </a>
-                    </div>
-                  </div>
-                  <div *ngIf="cast.profile_path != null" class="card_image">
-                    <a>
-                      <img src="{{filepath}}{{cast.profile_path}}" />
-                    </a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
       </div>
+    </div>
+    <div class="main">
+      <ul class="cards">
+        <li *ngFor="let cast of credits?.cast" class="cards_item">
+          <div class="card">
+            <div>
+              <div *ngIf="cast.profile_path == null" class="card_image">
+                <a>
+                  <img src="../../assets/noImageBig.jpg" />
+                </a>
+              </div>
+            </div>
+            <div *ngIf="cast.profile_path != null" class="card_image">
+              <a>
+                <img src="{{filepath}}{{cast.profile_path}}" />
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
     </div>
   </div>
 

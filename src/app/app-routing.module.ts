@@ -6,14 +6,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { MoviesDetailsComponent } from './movies-details/movies-details.component';
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
 import { UpComingComponent } from './up-coming/up-coming.component';
+import { PageErrorComponent } from './page-error/page-error.component';
 
 const routes: Routes = [
   { path:'polular', component: PopularMoviesComponent },
   { path:'movies/:id', component: MoviesDetailsComponent },
-  { path:'', component: MoviesComponent },
   { path: 'now_playing', component: NowPlayingComponent },
   { path: 'top_rated', component: TopRatedComponent },
-  { path: 'up_coming', component: UpComingComponent }
+  { path: 'up_coming', component: UpComingComponent },
+  { path: 'error', component: PageErrorComponent },
+  { path: '', component: MoviesComponent },
 ];
 
 @NgModule({

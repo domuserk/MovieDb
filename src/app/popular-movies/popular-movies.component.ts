@@ -21,6 +21,8 @@ export class PopularMoviesComponent implements OnInit {
   popular:any;
   messageToShow: any;
   moviesToShow: boolean = false;
+  messageToShowEquals:any;
+
   constructor(
     private moviesService: MoviesService,
     private formBuilder: FormBuilder,
@@ -33,45 +35,56 @@ export class PopularMoviesComponent implements OnInit {
     this.movieName = this.formBuilder.group ({
       title: ['']
     })
-    
-    await this.moviesService.movieName.subscribe(msg => {
-      this.messageToShow = msg;
-      this.ngOnInit();
-    })
-    this.getMovieName(this.messageToShow)
+  
+    this.getSearchBar()
+    this.verifyEqualsSearch()
+    this.getPopularMovies()
   }
 
   async getMovieName(movieName?) {
-    
-    /*this.title = this.movieName.get('title').value;
-    if(this.title == '') {
-      this.loadingSecondCard = false;
-      this.title = 'justice league'
-    }else {
-      this.loadingSecondCard = true;
-    }
-    try {
-     return this.movies = await this.moviesService.getMovies(this.title)
-    }catch(err) {
-      console.log(err)
-    }
-      return null;*/
+
     if (movieName != undefined && movieName != '' ) {
       this.moviesToShow = true;
       this.movies = await this.moviesService.getMovies(movieName)
     }
+    return null;
+  }
 
-    try {
-       this.popular = await this.moviesService.getPopular()
+  onClick() {
+   this.routeActive = true
+  }
+
+  async getSearchBar() {
+    if (this.messageToShow != undefined || this.messageToShow != '') {
+      await this.moviesService.movieName.subscribe(msg => {
+        this.messageToShow = msg;
+        if (this.messageToShow != this.messageToShowEquals) {
+          this.getMovieName(this.messageToShow)
+        }
        
+      })
+    } else {
+      return null;
+    }
+  }
+
+  async verifyEqualsSearch() {
+    await this.moviesService.movieName.subscribe(msg => {
+      this.messageToShowEquals = msg;
+    })
+    if (this.messageToShowEquals === this.messageToShow) return null;
+  }
+  
+  async getPopularMovies() {
+    if (this.messageToShow == '' || this.messageToShow == null){
+    try {
+      this.popular = await this.moviesService.getPopular()
     } catch (err) {
       console.log(err)
     }
     return null;
   }
-  onClick() {
-   this.routeActive = true
-  }
+ }
 }
 
 

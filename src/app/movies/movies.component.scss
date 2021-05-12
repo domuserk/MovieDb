@@ -36,6 +36,7 @@ img {
   height: auto;
   max-width: 100%;
   vertical-align: middle;
+  min-height: 402px;
 }
 
 .btn {
@@ -102,7 +103,7 @@ img {
   letter-spacing: 1px;
   text-transform: capitalize;
   margin: 0px;
-  text-align: center;
+  text-align: centerrorer;
 }
 
 .card_text {
@@ -138,6 +139,18 @@ img {
   transform: translate(-50%, -50%);
   background-color: purple;
 }
+
 .bg-complete-scene{
   background-color: black;
 }
+
+.movie-filter {
+  padding-top: 25px;
+}
+
+.error {
+  position: absolute;
+	left: 50%;
+	top: 50%
+}
+

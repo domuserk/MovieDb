@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   nameMovie: string;
   title: string;
   loadingSecondCard: boolean = false;
+  moviesSearch: string;
   
   constructor(
     private moviesService: MoviesService,
@@ -26,6 +27,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
    this.scrollDownEffect();
+   this.moviesService.movieName.subscribe(msg => {
+     this.moviesSearch = msg;
+   })
   }
 
   async getMovieName(movieName?) {
@@ -34,10 +38,22 @@ export class HeaderComponent implements OnInit {
   scrollDownEffect() {
     window.onscroll = () => {
       const header = document.getElementById('nav');
+      const githubIcon = document.getElementById('git')
+      const moviesIcon = document.getElementById('movies')
+      const signButton = document.getElementById('sign');
+
       if (window.scrollY > 80) {
         header.classList.add('white');
+        githubIcon.classList.add('color-black');
+        moviesIcon.classList.add('color-black');
+        signButton.style.color = 'black'
       } else {
         header.classList.remove('white');
+        githubIcon.classList.remove('color-black');
+        githubIcon.classList.add('color-white');
+        moviesIcon.classList.remove('color-black');
+        moviesIcon.classList.add('color-white');
+        signButton.removeAttribute("style");
       }
     }
   }

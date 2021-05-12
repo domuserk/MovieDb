@@ -14,6 +14,7 @@ import { TopRatedComponent } from './top-rated/top-rated.component';
 import { UpComingComponent } from './up-coming/up-coming.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PageErrorComponent } from './page-error/page-error.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SearchComponent,
     NowPlayingComponent,
     TopRatedComponent,
-    UpComingComponent
+    UpComingComponent,
+    PageErrorComponent
   ],
   imports: [
     BrowserModule,

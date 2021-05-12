@@ -31,6 +31,7 @@ export class MoviesComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   durationInSeconds = 5;
+  pageError: boolean =  false;
 
   constructor(
     private moviesService: MoviesService,
@@ -50,7 +51,6 @@ export class MoviesComponent implements OnInit {
     if (this.messageToShow === undefined || this.messageToShow === '' ) {
       this.messageToShow = 'batman';
     } 
-
     this.getSearchBar()
     this.verifyEqualsSearch()
   }
@@ -61,10 +61,20 @@ export class MoviesComponent implements OnInit {
   }
 
   async getMovieName(movieName?) {
+    
     try {
-      return this.movies = await this.moviesService.getMovies(movieName)
-      
+    
+      this.movies = await this.moviesService.getMovies(movieName)
+      this.pageError = false;
+      if (this.movies?.results == 0) {
+        this.pageError = true;
+        //this.router.navigateByUrl('/error');
+      }
     }catch(err) {
+      if (err) {
+        movieName = 'batman';
+        this.movies = await this.moviesService.getMovies(movieName)
+      }
       this.openSnackBar()
       throw new Error(err)
     }
@@ -91,6 +101,7 @@ export class MoviesComponent implements OnInit {
           this.ngOnInit();
         }
       })
+     
       this.getMovieName(this.messageToShow)
     }else {
       return null;
@@ -103,4 +114,5 @@ export class MoviesComponent implements OnInit {
     })
     if (this.messageToShowEquals === this.messageToShow) return null;
   }
+
 }

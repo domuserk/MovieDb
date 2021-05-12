@@ -1,5 +1,5 @@
 <div class="bg-complete-scene">
-<div >
+<div class="movie-filter" *ngIf="pageError != true">
   <a [routerLink]="['/polular']">
     <button class="waves-effect waves-light btn-small" type="submit">Popular</button>
   </a>
@@ -51,6 +51,7 @@
     </ul>
   </div>
 </div>
+
 
 
 
