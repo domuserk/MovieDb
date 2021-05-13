@@ -1,5 +1,5 @@
 import { MoviesService } from './../movies/services/movies.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -18,9 +18,14 @@ export class MoviesDetailsComponent implements OnInit {
   trending:any;
   allMovies:any;
   imagesMovie:any;
+  searchMovies:any;
+  button:boolean = false;
+  showAllCasts: string = 'Show All';
+
   constructor(
     private route: ActivatedRoute,
-    private moviesService: MoviesService
+    private moviesService: MoviesService,
+    private router: Router
     ) { }
 
   async ngOnInit() {
@@ -54,7 +59,13 @@ export class MoviesDetailsComponent implements OnInit {
     this.credits = await this.moviesService.getCredits(this.id)
   }
 
-  click() {
-
+  toggleCasts() {
+    if (this.button == true) {
+      this.button = false;
+      this.showAllCasts = 'Show All'
+    }else {
+      this.button = true;
+      this.showAllCasts = 'Toggle'
+    }
   }
 }

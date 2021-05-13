@@ -22,7 +22,8 @@ export class NowPlayingComponent implements OnInit {
   trending: any;
   messageToShow: any;
   moviesToShow: boolean = false;
-
+  messageToShowEquals: any;
+  
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
@@ -43,10 +44,6 @@ export class NowPlayingComponent implements OnInit {
 
 
   async getNowPlaying(movieName?) {
-    if (this.messageToShow != undefined && this.messageToShow != '' ) {
-      this.moviesToShow = true;
-      this.movies = await this.moviesService.getMovies(movieName)
-    }
     try {
       this.moviesPopular = await this.moviesService.getNowPlaying()
     }catch(e) {

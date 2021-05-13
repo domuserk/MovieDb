@@ -14,5 +14,5 @@
   </nav>
 </div>
 <div class="search-results">
-  <h2>Resultados de busca para {{moviesSearch}}</h2>
+  <h2 *ngIf="moviesSearch != null && moviesSearch != '' ">Resultados de busca para {{moviesSearch}}</h2>
 </div>

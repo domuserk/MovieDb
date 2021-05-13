@@ -59,6 +59,7 @@ export class PopularMoviesComponent implements OnInit {
       await this.moviesService.movieName.subscribe(msg => {
         this.messageToShow = msg;
         if (this.messageToShow != this.messageToShowEquals) {
+          console.log('aqui meu chapa')
           this.getMovieName(this.messageToShow)
         }
        

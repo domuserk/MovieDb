@@ -15,6 +15,8 @@ import { UpComingComponent } from './up-coming/up-coming.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageErrorComponent } from './page-error/page-error.component';
+import { PageErrorForbiddenComponent } from './page-error-forbidden/page-error-forbidden.component';
+import { MiniGameComponent } from './mini-game/mini-game.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { PageErrorComponent } from './page-error/page-error.component';
     NowPlayingComponent,
     TopRatedComponent,
     UpComingComponent,
-    PageErrorComponent
+    PageErrorComponent,
+    PageErrorForbiddenComponent,
+    MiniGameComponent
   ],
   imports: [
     BrowserModule,

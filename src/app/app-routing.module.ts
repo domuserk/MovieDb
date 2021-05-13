@@ -1,3 +1,4 @@
+import { MiniGameComponent } from './mini-game/mini-game.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
 import { NowPlayingComponent } from './now-playing/now-playing.component';
 import { MoviesComponent } from './movies/movies.component';
@@ -14,8 +15,10 @@ const routes: Routes = [
   { path: 'now_playing', component: NowPlayingComponent },
   { path: 'top_rated', component: TopRatedComponent },
   { path: 'up_coming', component: UpComingComponent },
-  { path: 'error', component: PageErrorComponent },
   { path: '', component: MoviesComponent },
+  { path: 'game', component: MiniGameComponent },
+  //{ path: '', redirectTo: '/home', pathMatch:'full' },
+  { path: '**', component: PageErrorComponent }
 ];
 
 @NgModule({
