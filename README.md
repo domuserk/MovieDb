@@ -1,6 +1,6 @@
 # MovieDb
 
-![MovieDb](https://https://github.com/domuserk/MovieDb/blob/main/Moviedb.png)
+![MovieDb](https://github.com/domuserk/MovieDb/blob/main/Moviedb.png)
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
 
 ## Development server
