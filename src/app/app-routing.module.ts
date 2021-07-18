@@ -1,3 +1,5 @@
+import { HomeStreamingComponent } from './home-streaming/home-streaming.component';
+import { LoginComponent } from './login/login.component';
 import { MiniGameComponent } from './mini-game/mini-game.component';
 import { TopRatedComponent } from './top-rated/top-rated.component';
 import { NowPlayingComponent } from './now-playing/now-playing.component';
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'up_coming', component: UpComingComponent },
   { path: '', component: MoviesComponent },
   { path: 'game', component: MiniGameComponent },
+  { path : 'login', component: LoginComponent},
+  { path: 'home-streaming', component: HomeStreamingComponent },
   //{ path: '', redirectTo: '/home', pathMatch:'full' },
   { path: '**', component: PageErrorComponent }
 ];
