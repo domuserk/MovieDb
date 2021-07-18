@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageErrorComponent } from './page-error/page-error.component';
 import { PageErrorForbiddenComponent } from './page-error-forbidden/page-error-forbidden.component';
 import { MiniGameComponent } from './mini-game/mini-game.component';
+import { LoginComponent } from './login/login.component';
+import { HomeStreamingComponent } from './home-streaming/home-streaming.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { MiniGameComponent } from './mini-game/mini-game.component';
     UpComingComponent,
     PageErrorComponent,
     PageErrorForbiddenComponent,
-    MiniGameComponent
+    MiniGameComponent,
+    LoginComponent,
+    HomeStreamingComponent
   ],
   imports: [
     BrowserModule,
