@@ -28,6 +28,28 @@ export class AuthServiceService {
     }
     
   }
+
+  async authenticateUser(emailOrUsername, password) {
+    try {
+      this.http.post('http://localhost:3000/user/authenticate',{
+        emailOrUsername, 
+        password
+      }).subscribe(
+        result => {
+          console.log(result);
+        },
+        err => {
+          if(err.status == 400) {
+            console.log(err);
+          }
+        }
+    );
+    }catch(err) {
+      alert('email ou senha incorretos')
+    }
+    
+  }
+
   
   async createUser(name, email, password, username, age) {
     try {
