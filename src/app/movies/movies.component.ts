@@ -43,7 +43,6 @@ export class MoviesComponent implements OnInit {
     ) { }
 
   async ngOnInit() {
-    console.log('aquiFora')
     this.movieName = this.formBuilder.group ({
       title: ['']
     })

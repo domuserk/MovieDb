@@ -19,6 +19,7 @@ import { PageErrorForbiddenComponent } from './page-error-forbidden/page-error-f
 import { MiniGameComponent } from './mini-game/mini-game.component';
 import { LoginComponent } from './login/login.component';
 import { HomeStreamingComponent } from './home-streaming/home-streaming.component';
+import { HeadRouterComponent } from './head-router/head-router.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { HomeStreamingComponent } from './home-streaming/home-streaming.componen
     PageErrorForbiddenComponent,
     MiniGameComponent,
     LoginComponent,
-    HomeStreamingComponent
+    HomeStreamingComponent,
+    HeadRouterComponent
   ],
   imports: [
     BrowserModule,
