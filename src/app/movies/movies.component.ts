@@ -85,7 +85,7 @@ export class MoviesComponent implements OnInit {
   }
 
   openSnackBar() {
-    this._snackBar.open('Faça Melhor', 'Splash', {
+    this._snackBar.open('busca vazia, exibindo resultados para batman', 'Splash', {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
       duration: this.durationInSeconds * 1000,

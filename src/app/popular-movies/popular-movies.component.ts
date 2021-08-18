@@ -61,7 +61,6 @@ export class PopularMoviesComponent implements OnInit {
         if (this.messageToShow != this.messageToShowEquals) {
           this.getMovieName(this.messageToShow)
         }
-       
       })
     } else {
       return null;
