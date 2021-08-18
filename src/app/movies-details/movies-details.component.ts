@@ -70,6 +70,7 @@ export class MoviesDetailsComponent implements OnInit {
   
   async getCredits(id) {
     this.credits = await this.moviesService.getCredits(this.id)
+    console.log(this.credits)
   }
   
   toggleCasts() {
